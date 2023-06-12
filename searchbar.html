@@ -1,0 +1,68 @@
+# Create HTML content
+html_content = '''
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map with Search Bar</title>
+    <style>
+        #map {
+            height: 400px;
+            width: 70%;
+            float: left;
+        }
+        #search-bar {
+            width: 30%;
+            float: right;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <input id="search-bar" type="text" placeholder="Search location...">
+</body>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4Ua2RlccldtqrPOmUzj_kgV7baVgcDM8&libraries=places"></script>
+<script>
+    var map;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: {{ latitude }}, lng: {{ longitude }}},
+            zoom: 10
+        });
+
+        var input = document.getElementById('search-bar');
+        var searchBox = new google.maps.places.SearchBox(input);
+
+        map.addListener('bounds_changed', function() {
+            searchBox.setBounds(map.getBounds());
+        });
+
+        searchBox.addListener('places_changed', function() {
+            var places = searchBox.getPlaces();
+
+            if (places.length === 0) {
+                return;
+            }
+
+            var bounds = new google.maps.LatLngBounds();
+            places.forEach(function(place) {
+                if (!place.geometry) {
+                    console.log("Returned place contains no geometry");
+                    return;
+                }
+
+                if (place.geometry.viewport) {
+                    bounds.union(place.geometry.viewport);
+                } else {
+                    bounds.extend(place.geometry.location);
+                }
+            });
+
+            map.fitBounds(bounds);
+        });
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap"></script>
+</html>
+'''
+
