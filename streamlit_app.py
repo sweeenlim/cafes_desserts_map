@@ -10,4 +10,5 @@ with open('cafe_map.html', 'r') as file:
     html_content = file.read()
 
 # Display the HTML content in Streamlit
-html(html_content, height=800)
+with st.container():
+    html(html_content, height=800)
