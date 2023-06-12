@@ -11,7 +11,7 @@ with open('cafe_map.html', 'r') as file:
     html_content = file.read()
 
 with open('searchbar.html', 'r') as file:
-        html_bar = file.read()
+    html_bar = file.read()
     
 col1, col2 = st.columns(2)
 # Display the HTML content in Streamlit
