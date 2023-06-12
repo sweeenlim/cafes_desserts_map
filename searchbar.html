@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>Map with Search</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4Ua2RlccldtqrPOmUzj_kgV7baVgcDM8&libraries=places"></script>
 </head>
 <body>
     <div id="search-container">
@@ -11,6 +10,13 @@
     <div id="map-container"></div>
 
     <script>
+        function loadMapScript() {
+            const apiKey = 'AIzaSyC4Ua2RlccldtqrPOmUzj_kgV7baVgcDM8';
+            const script = document.createElement('script');
+            script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=initMap`;
+            document.head.appendChild(script);
+        }
+
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map-container'), {
                 center: { lat: 1.3521, lng: 103.8198 },
@@ -44,7 +50,8 @@
                 marker.setVisible(true);
             });
         }
+        window.addEventListener('load', loadMapScript);
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4Ua2RlccldtqrPOmUzj_kgV7baVgcDM8&callback=initMap&libraries=places" async defer></script>
+    
 </body>
 </html>
