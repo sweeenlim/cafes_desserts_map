@@ -35,6 +35,9 @@
 
             autocomplete.addListener('place_changed', function() {
                 var place = autocomplete.getPlace();
+                var latitude = place.geometry.location.lat();
+                var longitude = place.geometry.location.lng();
+
                 if (!place.geometry) {
                     window.alert("No details available for input: '" + place.name + "'");
                     return;

@@ -7,6 +7,8 @@
         <script>
             L_NO_TOUCH = false;
             L_DISABLE_3D = false;
+            var latitude = {LATITUDE};
+            var longitude = {LONGITUDE};
         </script>
     
     <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
@@ -55,11 +57,12 @@
                     preferCanvas: false,
                 }
             );
+            var center = map_4e31fd1371cf6e86c7d1a61d0497e6d2.getCenter();
 
-            
+            // Access the latitude and longitude
+            LATITUDE = center.lat;
+            LONGITUDE = center.lng;
 
-        
-    
             var tile_layer_10968b14433bb69750c7245e574292c8 = L.tileLayer(
                 "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
