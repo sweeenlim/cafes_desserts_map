@@ -2,6 +2,7 @@ import streamlit as st
 
 from streamlit.components.v1 import html
 
+#Creating a title
 st.header("Cafes and Desserts in Singapore Map")
 st.subheader("A map to show the cafes in Singapore and desserts within 500m proximity of the cafes")
 
