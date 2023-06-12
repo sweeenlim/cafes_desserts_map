@@ -39,8 +39,8 @@ with col1:
             new_latitude = data['results'][0]['geometry']['location']['lat']
             new_longitude = data['results'][0]['geometry']['location']['lng']
 
-            folium_map_html = folium_map_html.replace('{LATITUDE}', str(new_latitude))
-            folium_map_html = folium_map_html.replace('{LONGITUDE}', str(new_longitude))
+            folium_map_html = folium_map_html.replace('1.3114516', str(new_latitude))
+            folium_map_html = folium_map_html.replace('103.8561608', str(new_longitude))
             with open('folium_map.html', 'w') as file:
                 file.write(folium_map_html)
             st.success("Map updated successfully")
