@@ -7,6 +7,8 @@
         <script>
             L_NO_TOUCH = false;
             L_DISABLE_3D = false;
+            var latitude = {LATITUDE};
+            var longitude = {LONGITUDE};
         </script>
     
     <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
@@ -58,8 +60,6 @@
             var center = map_4e31fd1371cf6e86c7d1a61d0497e6d2.getCenter();
 
             // Access the latitude and longitude
-            var latitude = {LATITUDE};
-            var longitude = {LONGITUDE};
             LATITUDE = center.lat;
             LONGITUDE = center.lng;
 
