@@ -46,5 +46,6 @@ with col1:
             st.success("Map updated successfully")
 
 
+
 with col2:
-    html(folium_map_html, height=800)
+    html(folium_map_html, height=800, width=500)
